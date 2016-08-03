@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OrbitSim", "OrbitSim\OrbitSim.vcxproj", "{370F4B4A-9329-4CEC-8CBA-5550165D8A7A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OrbitSim", "src\OrbitSim.vcxproj", "{370F4B4A-9329-4CEC-8CBA-5550165D8A7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
