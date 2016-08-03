@@ -8,3 +8,8 @@
 #include <iostream>
 
 #include <SFML\Graphics.hpp>
+
+#include "Tools.h"
+
+//States
+#include "Game.h"
