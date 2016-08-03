@@ -9,7 +9,9 @@
 
 #include <SFML\Graphics.hpp>
 
+//Libs
 #include "Tools.h"
+#include "Physics.h"
 
 //States
 #include "Game.h"
