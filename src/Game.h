@@ -12,6 +12,6 @@ public:
 private:
 	sf::RenderWindow *app;
 
-	Planet earth;
+	Level level;
 };
 
