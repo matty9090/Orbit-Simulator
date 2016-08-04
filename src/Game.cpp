@@ -5,7 +5,7 @@
 Game::Game(sf::RenderWindow *app) {
 	this->app = app;
 
-	earth.setPosition(sf::Vector2f(0, 0));
+	
 }
 
 void Game::run() {
@@ -19,7 +19,7 @@ void Game::run() {
 
 		app->clear(sf::Color(5, 5, 5));
 
-		earth.draw(app);
+		level.draw(app);
 
 		app->display();
 	}
