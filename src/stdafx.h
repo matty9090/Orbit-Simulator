@@ -11,6 +11,7 @@
 
 //Libs
 #include "Tools.h"
+#include "Body.h"
 #include "Physics.h"
 
 //States

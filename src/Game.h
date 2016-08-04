@@ -11,5 +11,7 @@ public:
 
 private:
 	sf::RenderWindow *app;
+
+	Planet earth;
 };
 
