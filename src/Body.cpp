@@ -3,7 +3,7 @@
 
 
 Body::Body() {
-	mass = 1e24;
+	
 }
 
 void Body::setPosition(sf::Vector2f pos) {
@@ -27,13 +27,15 @@ sf::Vector2f Body::getVelocity() {
 }
 
 Planet::Planet(b2World *world, float radius, sf::Vector2f pos) {
+	mass = 1e18;
+	
 	def.type = b2_dynamicBody;
 	def.position.Set(pos.x, pos.y);
 	body = world->CreateBody(&def);
 
 	shape.m_radius = radius;
 	fix.shape = &shape;
-	fix.density = 1;
+	fix.density = mass / (3.141 * radius * radius);
 	fix.friction = 0.3f;
 	body->CreateFixture(&fix);
 

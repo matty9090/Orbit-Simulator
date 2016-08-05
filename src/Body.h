@@ -18,11 +18,11 @@ public:
 	b2Body *body;
 
 protected:
-	sf::Vector2f pos;	
+	sf::Vector2f pos;
+	double mass;
 
 private:
 	sf::Vector2f vel;
-	double mass;
 };
 
 class Planet : public Body {

@@ -9,7 +9,7 @@ Player::Player(b2World *world, sf::Vector2f pos) {
 	def.position.Set(pos.x, pos.y);
 	body = world->CreateBody(&def);
 
-	shape.m_radius = 20;
+	shape.m_radius = 32;
 	fix.shape = &shape;
 	fix.density = 1;
 	fix.friction = 0.3f;
@@ -17,7 +17,7 @@ Player::Player(b2World *world, sf::Vector2f pos) {
 
 	tex.loadFromFile("res/tex/player.png");
 	spr.setPosition(pos);
-	spr.setOrigin(20, 20);
+	spr.setOrigin(32, 32);
 	spr.setTexture(tex);
 }
 

@@ -9,6 +9,7 @@
 #include <iostream>
 #include <vector>
 #include <cstdlib>
+#include <cmath>
 
 //Ext Libs
 #include <SFML\Graphics.hpp>
