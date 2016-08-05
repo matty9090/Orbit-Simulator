@@ -18,6 +18,7 @@
 #include "Tools.h"
 #include "Body.h"
 #include "Physics.h"
+#include "Player.h"
 #include "Level.h"
 
 //States

@@ -9,10 +9,16 @@ public:
 
 	void draw(sf::RenderWindow *app);
 	void update();
+	double getMass();
+	b2Body *getBody();
+
+	sf::Vector2f getPosition();
 
 private:
 	sf::Sprite spr;
 	sf::Texture tex;
+
+	double mass;
 
 	b2Body *body;
 	b2BodyDef def;

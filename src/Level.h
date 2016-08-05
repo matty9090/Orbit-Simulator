@@ -9,6 +9,7 @@ public:
 	Level();
 	~Level();
 
+	void update(Player *player);
 	void draw(sf::RenderWindow *app);
 
 	b2World *getWorld();

@@ -4,6 +4,8 @@
 
 Game::Game(sf::RenderWindow *app) {
 	this->app = app;
+
+	player = new Player(level.getWorld(), sf::Vector2f(100, 200));
 }
 
 void Game::run() {
@@ -26,11 +28,13 @@ void Game::run() {
 }
 
 void Game::update() {
+	level.update(player);
 	level.getWorld()->Step(1 / 60.f, 8, 3);
 }
 
 void Game::draw() {
 	level.draw(app);
+	player->draw(app);
 }
 
 Game::~Game() {
