@@ -2,6 +2,8 @@
 
 #include "stdafx.h"
 
+using namespace std;
+
 class Level {
 public:
 	Level();
@@ -14,6 +16,6 @@ public:
 private:
 	b2World *world;
 
-	Planet earth;
+	vector<Body*> objects;
 };
 
