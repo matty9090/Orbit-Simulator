@@ -24,13 +24,16 @@ private:
 
 class Planet : public Body {
 public:
-	Planet(b2World *world);
+	Planet(b2World *world, float radius);
 
 	void draw(sf::RenderWindow *app);
 	void setPosition(sf::Vector2f pos);
 
 private:
-	sf::Sprite spr;
+	sf::CircleShape spr;
 	sf::Texture tex;
+
+	b2CircleShape shape;
 	b2BodyDef def;
+	b2FixtureDef fix;
 };
