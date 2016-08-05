@@ -30,10 +30,10 @@ Planet::Planet(b2World *world, float radius, sf::Vector2f pos) {
 	mass = 1000;
 	
 	def.type = b2_dynamicBody;
-	def.position.Set(pos.x, pos.y);
+	def.position.Set(pos.x * SCALE, pos.y * SCALE);
 	body = world->CreateBody(&def);
 
-	shape.m_radius = radius;
+	shape.m_radius = radius * SCALE;
 	fix.shape = &shape;
 	fix.density = mass / (3.141 * radius * radius);
 	fix.friction = 0.3f;
@@ -49,7 +49,7 @@ Planet::Planet(b2World *world, float radius, sf::Vector2f pos) {
 
 void Planet::draw(sf::RenderWindow *app) {
 	b2Vec2 pos = body->GetPosition();
-	setPosition(sf::Vector2f(pos.x, pos.y));
+	setPosition(sf::Vector2f(pos.x / SCALE, pos.y / SCALE));
 
 	app->draw(spr);
 }
