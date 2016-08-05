@@ -3,7 +3,7 @@
 
 
 Body::Body() {
-	
+	mass = 1e24;
 }
 
 void Body::setPosition(sf::Vector2f pos) {
@@ -12,6 +12,10 @@ void Body::setPosition(sf::Vector2f pos) {
 
 void Body::setVelocity(sf::Vector2f vel) {
 	this->vel = vel;
+}
+
+double Body::getMass() {
+	return mass;
 }
 
 sf::Vector2f Body::getPosition() {

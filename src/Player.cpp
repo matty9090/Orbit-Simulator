@@ -3,6 +3,8 @@
 
 
 Player::Player(b2World *world, sf::Vector2f pos) {
+	mass = 1000;
+
 	def.type = b2_dynamicBody;
 	def.position.Set(pos.x, pos.y);
 	body = world->CreateBody(&def);
@@ -16,6 +18,19 @@ Player::Player(b2World *world, sf::Vector2f pos) {
 	tex.loadFromFile("res/tex/player.png");
 	spr.setPosition(pos);
 	spr.setOrigin(20, 20);
+	spr.setTexture(tex);
+}
+
+b2Body *Player::getBody() {
+	return body;
+}
+
+double Player::getMass() {
+	return mass;
+}
+
+sf::Vector2f Player::getPosition() {
+	return spr.getPosition();
 }
 
 void Player::draw(sf::RenderWindow *app) {

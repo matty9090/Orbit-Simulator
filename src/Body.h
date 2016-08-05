@@ -9,6 +9,7 @@ public:
 	void setPosition(sf::Vector2f pos);
 	void setVelocity(sf::Vector2f vel);
 
+	double getMass();
 	sf::Vector2f getPosition();
 	sf::Vector2f getVelocity();
 
@@ -21,6 +22,7 @@ protected:
 
 private:
 	sf::Vector2f vel;
+	double mass;
 };
 
 class Planet : public Body {
