@@ -18,14 +18,16 @@ void Level::update(Player *player) {
 	for (auto &obj : objects)
 		force += Physics::force(obj->getPosition(), player->getPosition(), obj->getMass(), player->getMass());
 
-	//std::cout << force.x << "\t" << force.y << std::endl;
-
-	player->getBody()->ApplyForceToCenter(b2Vec2(-force.x, -force.y), true);
+	objects[0]->body->ApplyForceToCenter(b2Vec2(force.x, force.y), true);
 }
 
 void Level::draw(sf::RenderWindow *app) {
 	for (auto &obj : objects)
 		obj->draw(app);
+}
+
+void Level::updatePlanet(sf::Vector2f pos) {
+	objects[0]->setPosition(pos);
 }
 
 b2World *Level::getWorld() {

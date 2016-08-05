@@ -27,7 +27,7 @@ sf::Vector2f Body::getVelocity() {
 }
 
 Planet::Planet(b2World *world, float radius, sf::Vector2f pos) {
-	mass = 1e18;
+	mass = 1000;
 	
 	def.type = b2_dynamicBody;
 	def.position.Set(pos.x, pos.y);

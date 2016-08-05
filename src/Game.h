@@ -8,6 +8,7 @@ public:
 	~Game();
 
 	void run();
+	void events(sf::Event &e);
 
 private:
 	sf::RenderWindow *app;

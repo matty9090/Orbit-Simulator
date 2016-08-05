@@ -3,7 +3,7 @@
 
 
 Player::Player(b2World *world, sf::Vector2f pos) {
-	mass = 1000;
+	mass = 1e20;
 
 	def.type = b2_dynamicBody;
 	def.position.Set(pos.x, pos.y);
@@ -29,13 +29,18 @@ double Player::getMass() {
 	return mass;
 }
 
+void Player::setPosition(sf::Vector2f pos) {
+	spr.setPosition(pos);
+	body->SetTransform(b2Vec2(pos.x, pos.y), body->GetAngle());
+}
+
 sf::Vector2f Player::getPosition() {
 	return spr.getPosition();
 }
 
 void Player::draw(sf::RenderWindow *app) {
-	b2Vec2 pos = body->GetPosition();
-	spr.setPosition(pos.x, pos.y);
+	//b2Vec2 pos = body->GetPosition();
+	//spr.setPosition(pos.x, pos.y);
 
 	app->draw(spr);
 }

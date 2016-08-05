@@ -15,6 +15,8 @@ void Game::run() {
 		while (app->pollEvent(e)) {
 			if (e.type == sf::Event::Closed)
 				app->close();
+			else
+				events(e);
 		}
 
 		update();
@@ -29,12 +31,23 @@ void Game::run() {
 
 void Game::update() {
 	level.update(player);
-	level.getWorld()->Step(1 / 60.f, 8, 3);
+	level.getWorld()->Step(1 / 30.f, 8, 3);
 }
 
 void Game::draw() {
 	level.draw(app);
 	player->draw(app);
+}
+
+void Game::events(sf::Event &e) {
+	switch (e.type) {
+	case sf::Event::MouseMoved:
+		sf::Vector2i pos = sf::Mouse::getPosition(*app);
+
+		player->setPosition(sf::Vector2f(pos.x, pos.y));
+
+		break;
+	}
 }
 
 Game::~Game() {
