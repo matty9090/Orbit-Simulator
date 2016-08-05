@@ -22,14 +22,20 @@ sf::Vector2f Body::getVelocity() {
 	return vel;
 }
 
-Planet::Planet(b2World *world) {
+Planet::Planet(b2World *world, float radius) {
 	def.type = b2_dynamicBody;
 	def.position = b2Vec2(0, 0);
 	body = world->CreateBody(&def);
 
+	shape.m_radius = radius;
+	fix.shape = &shape;
+	body->CreateFixture(&fix);
+
 	tex.loadFromFile("res/tex/earth.png");
 	tex.setSmooth(true);
-	spr.setTexture(tex);
+	spr.setRadius(radius);
+	spr.setOrigin(radius, radius);
+	spr.setTexture(&tex);
 }
 
 void Planet::draw(sf::RenderWindow *app) {

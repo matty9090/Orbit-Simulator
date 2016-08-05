@@ -5,8 +5,8 @@ Level::Level() {
 	world = new b2World(b2Vec2(0, 0));
 
 	for (int i = 0; i < 10; i++) {
-		Planet *body = new Planet(world);
-		body->setPosition(sf::Vector2f(Tools::random(-200, 200), Tools::random(-200, 200)));
+		Planet *body = new Planet(world, 30);
+		body->setPosition(sf::Vector2f(Tools::random(0, 800), Tools::random(0, 800)));
 		objects.push_back(body);
 	}
 }
