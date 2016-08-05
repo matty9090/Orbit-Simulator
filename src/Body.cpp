@@ -3,7 +3,7 @@
 
 
 Body::Body() {
-
+	
 }
 
 void Body::setPosition(sf::Vector2f pos) {
@@ -22,7 +22,11 @@ sf::Vector2f Body::getVelocity() {
 	return vel;
 }
 
-Planet::Planet() : Body() {
+Planet::Planet(b2World *world) {
+	def.type = b2_dynamicBody;
+	def.position = b2Vec2(0, 0);
+	body = world->CreateBody(&def);
+
 	tex.loadFromFile("res/tex/earth.png");
 	tex.setSmooth(true);
 	spr.setTexture(tex);
@@ -35,4 +39,5 @@ void Planet::draw(sf::RenderWindow *app) {
 void Planet::setPosition(sf::Vector2f pos) {
 	this->pos = pos;
 	spr.setPosition(pos);
+	def.position = b2Vec2(pos.x, pos.y);
 }

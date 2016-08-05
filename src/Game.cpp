@@ -4,8 +4,6 @@
 
 Game::Game(sf::RenderWindow *app) {
 	this->app = app;
-
-	
 }
 
 void Game::run() {
