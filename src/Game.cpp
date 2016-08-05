@@ -15,12 +15,22 @@ void Game::run() {
 				app->close();
 		}
 
+		update();
+
 		app->clear(sf::Color(5, 5, 5));
 
-		level.draw(app);
+		draw();
 
 		app->display();
 	}
+}
+
+void Game::update() {
+	level.getWorld()->Step(1 / 60.f, 8, 3);
+}
+
+void Game::draw() {
+	level.draw(app);
 }
 
 Game::~Game() {

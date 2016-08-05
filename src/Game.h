@@ -11,7 +11,9 @@ public:
 
 private:
 	sf::RenderWindow *app;
-
 	Level level;
+
+	void update();
+	void draw();
 };
 

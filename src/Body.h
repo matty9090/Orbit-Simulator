@@ -14,9 +14,10 @@ public:
 
 	virtual void draw(sf::RenderWindow *app) = 0;
 
-protected:
-	sf::Vector2f pos;
 	b2Body *body;
+
+protected:
+	sf::Vector2f pos;	
 
 private:
 	sf::Vector2f vel;
@@ -24,7 +25,7 @@ private:
 
 class Planet : public Body {
 public:
-	Planet(b2World *world, float radius);
+	Planet(b2World *world, float radius, sf::Vector2f pos);
 
 	void draw(sf::RenderWindow *app);
 	void setPosition(sf::Vector2f pos);

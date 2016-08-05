@@ -22,13 +22,15 @@ sf::Vector2f Body::getVelocity() {
 	return vel;
 }
 
-Planet::Planet(b2World *world, float radius) {
+Planet::Planet(b2World *world, float radius, sf::Vector2f pos) {
 	def.type = b2_dynamicBody;
-	def.position = b2Vec2(0, 0);
+	def.position.Set(pos.x, pos.y);
 	body = world->CreateBody(&def);
 
 	shape.m_radius = radius;
 	fix.shape = &shape;
+	fix.density = 1;
+	fix.friction = 0.3f;
 	body->CreateFixture(&fix);
 
 	tex.loadFromFile("res/tex/earth.png");
@@ -36,14 +38,17 @@ Planet::Planet(b2World *world, float radius) {
 	spr.setRadius(radius);
 	spr.setOrigin(radius, radius);
 	spr.setTexture(&tex);
+	spr.setPosition(pos);
 }
 
 void Planet::draw(sf::RenderWindow *app) {
+	b2Vec2 pos = body->GetPosition();
+	setPosition(sf::Vector2f(pos.x, pos.y));
+
 	app->draw(spr);
 }
 
 void Planet::setPosition(sf::Vector2f pos) {
 	this->pos = pos;
 	spr.setPosition(pos);
-	def.position = b2Vec2(pos.x, pos.y);
 }
