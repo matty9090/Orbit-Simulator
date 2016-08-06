@@ -6,10 +6,10 @@ Player::Player(b2World *world, sf::Vector2f pos) {
 	mass = 1000;
 
 	def.type = b2_dynamicBody;
-	def.position.Set(pos.x, pos.y);
+	def.position.Set(pos.x * SCALE, pos.y * SCALE);
 	body = world->CreateBody(&def);
 
-	shape.m_radius = 20;
+	shape.m_radius = 20 * SCALE;
 	fix.shape = &shape;
 	fix.density = 1;
 	fix.friction = 0.3f;
@@ -30,7 +30,7 @@ double Player::getMass() {
 }
 
 void Player::setPosition(sf::Vector2f pos) {
-	body->SetTransform(b2Vec2(pos.x, pos.y), body->GetAngle());
+	body->SetTransform(b2Vec2(pos.x * SCALE, pos.y* SCALE), body->GetAngle());
 }
 
 sf::Vector2f Player::getPosition() {
@@ -39,7 +39,7 @@ sf::Vector2f Player::getPosition() {
 
 void Player::draw(sf::RenderWindow *app) {
 	b2Vec2 pos = body->GetPosition();
-	spr.setPosition(pos.x, pos.y);
+	spr.setPosition(pos.x / SCALE, pos.y / SCALE);
 
 	app->draw(spr);
 }
