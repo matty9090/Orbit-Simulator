@@ -35,7 +35,7 @@ Planet::Planet(b2World *world, float radius, sf::Vector2f pos) {
 
 	shape.m_radius = radius * SCALE;
 	fix.shape = &shape;
-	fix.density = mass / (3.141 * radius * radius);
+	fix.density = mass / (3.141 * radius * radius * SCALE);
 	fix.friction = 0.3f;
 	body->CreateFixture(&fix);
 

@@ -31,7 +31,7 @@ void Game::run() {
 
 void Game::update() {
 	level.update(player);
-	level.getWorld()->Step(1 / 30.f, 8, 3);
+	level.getWorld()->Step(1 / 30.f, 8, 8);
 }
 
 void Game::draw() {
