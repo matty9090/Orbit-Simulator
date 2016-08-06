@@ -8,7 +8,7 @@ namespace Physics {
 		double dx = p2.x - p1.x;
 		double dy = p2.y - p1.y;
 		double distance = sqrt(pow(dx, 2) + pow(dy, 2));
-		double force = (G * m1 * m2) / pow(distance, 2);
+		double force = (G * m1 * m2) / (pow(distance, 2));
 
 		return sf::Vector2f(force * dx / distance, force * dy / distance);
 	}

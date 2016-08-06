@@ -29,6 +29,10 @@ double Player::getMass() {
 	return mass;
 }
 
+void Player::setPosition(sf::Vector2f pos) {
+	body->SetTransform(b2Vec2(pos.x, pos.y), body->GetAngle());
+}
+
 sf::Vector2f Player::getPosition() {
 	return spr.getPosition();
 }

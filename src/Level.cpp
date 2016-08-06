@@ -17,9 +17,7 @@ void Level::update(Player *player) {
 	for (auto &obj : objects)
 		force += Physics::force(obj->getPosition(), player->getPosition(), obj->getMass(), player->getMass());
 
-	//std::cout << force.x << "\t" << force.y << std::endl;
-
-	player->getBody()->ApplyForceToCenter(b2Vec2(force.x, -force.y), true);
+	player->getBody()->ApplyForceToCenter(b2Vec2(-force.x, -force.y), true);
 }
 
 void Level::draw(sf::RenderWindow *app) {

@@ -16,5 +16,6 @@ private:
 
 	void update();
 	void draw();
+	void events(sf::Event &e);
 };
 
