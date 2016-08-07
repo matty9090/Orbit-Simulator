@@ -30,7 +30,21 @@ double Player::getMass() {
 }
 
 void Player::setPosition(sf::Vector2f pos) {
-	body->SetTransform(b2Vec2(pos.x * SCALE, pos.y* SCALE), body->GetAngle());
+	body->SetTransform(b2Vec2(pos.x * SCALE, pos.y * SCALE), body->GetAngle());
+}
+
+void Player::boostTowards(sf::Vector2f p) {
+	double x, y, force;
+
+	sf::Vector2f t(body->GetPosition().x / SCALE, body->GetPosition().y / SCALE);
+	sf::Vector2f d = p - t;
+
+	force = 20;
+
+	x = d.x;
+	y = d.y;
+
+	body->ApplyForceToCenter(b2Vec2(force * x, force * y), false);
 }
 
 sf::Vector2f Player::getPosition() {

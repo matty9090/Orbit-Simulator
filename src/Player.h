@@ -10,6 +10,7 @@ public:
 	void draw(sf::RenderWindow *app);
 	void update();
 	void setPosition(sf::Vector2f pos);
+	void boostTowards(sf::Vector2f pos);
 
 	double getMass();
 	b2Body *getBody();

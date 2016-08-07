@@ -5,6 +5,8 @@
 Game::Game(sf::RenderWindow *app) {
 	this->app = app;
 
+	loadTextures();
+
 	player = new Player(level.getWorld(), sf::Vector2f(100, 200));
 }
 
@@ -30,11 +32,16 @@ void Game::run() {
 }
 
 void Game::update() {
+	sf::Vector2i pos = sf::Mouse::getPosition(*app);
+	player->boostTowards(sf::Vector2f(pos.x, pos.y));
+
 	level.update(player);
 	level.getWorld()->Step(1 / 60.f, 8, 3);
 }
 
 void Game::draw() {
+	app->draw(bg);
+
 	level.draw(app);
 	player->draw(app);
 }
@@ -42,10 +49,14 @@ void Game::draw() {
 void Game::events(sf::Event &e) {
 	switch (e.type) {
 	case sf::Event::MouseMoved:
-		sf::Vector2i pos = sf::Mouse::getPosition(*app);
-		player->setPosition(sf::Vector2f(pos.x, pos.y));
+		
 		break;
 	}
+}
+
+void Game::loadTextures() {
+	bg_t.loadFromFile("res/tex/bg.jpg");
+	bg.setTexture(bg_t);
 }
 
 Game::~Game() {

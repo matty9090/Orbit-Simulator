@@ -10,12 +10,16 @@ public:
 	void run();
 
 private:
-	sf::RenderWindow *app;
 	Level level;
 	Player *player;
+
+	sf::Texture bg_t;
+	sf::Sprite bg;
+	sf::RenderWindow *app;
 
 	void update();
 	void draw();
 	void events(sf::Event &e);
+	void loadTextures();
 };
 
