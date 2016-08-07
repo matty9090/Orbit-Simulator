@@ -9,18 +9,28 @@ Level::Level() {
 		Planet *body = new Planet(world, 30, pos);
 		objects.push_back(body);
 	}
+
+	safeZone.setPosition(0, 0);
+	safeZone.setSize(sf::Vector2f(160, 768));
+	safeZone.setFillColor(sf::Color(0, 255, 0, 76));
+	safeZone.setOutlineColor(sf::Color(0, 200, 0, 128));
+	safeZone.setOutlineThickness(4.f);
 }
 
 void Level::update(Player *player) {
 	sf::Vector2f force;
 
-	for (auto &obj : objects)
-		force += Physics::force(obj->getPosition(), player->getPosition(), obj->getMass(), player->getMass());
+	if (!safeZone.getGlobalBounds().contains(player->getPosition())) {
+		for (auto &obj : objects)
+			force += Physics::force(obj->getPosition(), player->getPosition(), obj->getMass(), player->getMass());
 
-	player->getBody()->ApplyForceToCenter(b2Vec2(-force.x, -force.y), false);
+		player->getBody()->ApplyForceToCenter(b2Vec2(-force.x, -force.y), false);
+	}
 }
 
 void Level::draw(sf::RenderWindow *app) {
+	app->draw(safeZone);
+
 	for (auto &obj : objects)
 		obj->draw(app);
 }

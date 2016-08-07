@@ -16,7 +16,8 @@ public:
 
 private:
 	b2World *world;
-
 	vector<Body*> objects;
+
+	sf::RectangleShape safeZone;
 };
 
