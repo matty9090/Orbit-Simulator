@@ -2,12 +2,13 @@
 
 #include "stdafx.h"
 
-class Game {
+class Game : public GameState {
 public:
-	Game(sf::RenderWindow *app);
+	Game();
 	~Game();
 
-	void run();
+	void init(sf::RenderWindow *app);
+	int run();
 
 private:
 	Level level;

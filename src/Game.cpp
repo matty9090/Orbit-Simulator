@@ -2,7 +2,11 @@
 #include "Game.h"
 
 
-Game::Game(sf::RenderWindow *app) {
+Game::Game() {
+	
+}
+
+void Game::init(sf::RenderWindow *app) {
 	this->app = app;
 
 	loadTextures();
@@ -10,7 +14,7 @@ Game::Game(sf::RenderWindow *app) {
 	player = new Player(level.getWorld(), sf::Vector2f(100, 200));
 }
 
-void Game::run() {
+int Game::run() {
 	while (app->isOpen()) {
 		sf::Event e;
 
@@ -29,6 +33,8 @@ void Game::run() {
 
 		app->display();
 	}
+
+	return EXIT;
 }
 
 void Game::update() {
