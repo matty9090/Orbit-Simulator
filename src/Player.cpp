@@ -34,15 +34,16 @@ void Player::setPosition(sf::Vector2f pos) {
 }
 
 void Player::boostTowards(sf::Vector2f p) {
-	double x, y, force;
+	double x, y, force, len;
 
 	sf::Vector2f t(body->GetPosition().x / SCALE, body->GetPosition().y / SCALE);
 	sf::Vector2f d = p - t;
 
-	force = 20;
+	force = 1500;
+	len = sqrt(d.x * d.x + d.y * d.y);
 
-	x = d.x;
-	y = d.y;
+	x = d.x / len;
+	y = d.y / len;
 
 	body->ApplyForceToCenter(b2Vec2(force * x, force * y), false);
 }
