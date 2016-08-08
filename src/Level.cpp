@@ -12,8 +12,8 @@ Level::Level() {
 
 	safeZone.setPosition(0, 0);
 	safeZone.setSize(sf::Vector2f(160, 768));
-	safeZone.setFillColor(sf::Color(0, 255, 0, 76));
-	safeZone.setOutlineColor(sf::Color(0, 200, 0, 128));
+	safeZone.setFillColor(sf::Color(0, 255, 0, 70));
+	safeZone.setOutlineColor(sf::Color(0, 210, 0, 100));
 	safeZone.setOutlineThickness(4.f);
 }
 
