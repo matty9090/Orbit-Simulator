@@ -32,6 +32,21 @@ int Menu::run() {
 				app->close();
 			else if (e.type == sf::Event::KeyReleased)
 				return GAME;
+			else if (e.type == sf::Event::MouseButtonReleased && e.mouseButton.button == sf::Mouse::Left) {
+				for (auto &i : items) {
+					if (i.btnState == i.HOVER)
+						return i.state;
+				}
+			}
+		}
+
+		sf::Vector2i m = sf::Mouse::getPosition(*app);
+
+		for (auto &i : items) {
+			if (i.isHover(m))
+				i.setState(i.HOVER);
+			else
+				i.setState(i.NORMAL);
 		}
 
 		app->clear(sf::Color(5, 5, 5));

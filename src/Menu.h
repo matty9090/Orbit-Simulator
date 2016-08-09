@@ -3,7 +3,7 @@
 #include "stdafx.h"
 
 struct MenuItem {
-	int state;
+	int state, btnState;
 	sf::Text text;
 
 	static int i;
@@ -13,11 +13,26 @@ struct MenuItem {
 		state = s;
 		text = t;
 		text.setString(str);
+		btnState = NORMAL;
 
 		sf::FloatRect bounds = text.getLocalBounds();
-
 		text.setPosition(1024 / 2 - bounds.width / 2, i * 50 + 260);
 	}
+
+	bool isHover(sf::Vector2i m) {
+		return text.getGlobalBounds().contains(m.x, m.y);
+	}
+
+	void setState(int s) {
+		btnState = s;
+
+		switch (btnState) {
+		case NORMAL: text.setColor(sf::Color::White);  break;
+		case HOVER:	text.setColor(sf::Color(150, 150, 150)); break;
+		}
+	}
+
+	enum BtnState { NORMAL, HOVER, CLICKED };
 };
 
 class Menu : public GameState {
